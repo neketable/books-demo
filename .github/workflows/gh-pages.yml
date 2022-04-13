@@ -25,7 +25,3 @@ jobs:
 
       - name: Run deploy script
         run: sh ./scripts/gh-pages.sh
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
