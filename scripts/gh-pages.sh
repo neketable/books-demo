@@ -8,12 +8,12 @@ git config user.email "mr.nikita1116@mail.ru"
 
 echo "Start to deploy..."
 
-git checkout --orphan gh-pages-deploy
+git checkout --orphan gh-pages
 ls -l
 
 git --work-tree ./dist add --all
 git --work-tree ./dist commit -m "Deploy to GitHub Pages"
-git push -f origin HEAD:gh-pages-deploy
+git push -f origin HEAD:gh-pages
 rm -r dist
 
 git checkout -f main
