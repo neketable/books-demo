@@ -5,7 +5,6 @@ on:
     branches:
       - main
 
-
 jobs:
   gh-pages-deploy:
     name: Deploying to GitHub Pages
@@ -22,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build Application
-        run: npx ember build --environment=ci
+        run: npx ember build --environment=deploy
 
       - name: Run deploy script
         run: sh ./scripts/gh-pages.sh
