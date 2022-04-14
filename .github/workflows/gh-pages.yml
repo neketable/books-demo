@@ -5,6 +5,7 @@ on:
     branches:
       - main
 
+
 jobs:
   gh-pages-deploy:
     name: Deploying to GitHub Pages
