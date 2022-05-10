@@ -1,0 +1,39 @@
+{
+  "speakers": [
+    {
+      "id": 1,
+      "firstName": "Robert",
+      "lastName": "Martin"
+    },
+    {
+      "id": 2,
+      "firstName": "C.S.",
+      "lastName": "Lewis"
+    },
+    {
+      "id": 3,
+      "firstName": "Edgar",
+      "lastName": "Poe"
+    },
+    {
+      "firstName": "Erry",
+      "lastName": "Books",
+      "id": 6
+    },
+    {
+      "firstName": "Colley",
+      "lastName": "Printley",
+      "id": 7
+    },
+    {
+      "firstName": "Rolling",
+      "lastName": "Bowley",
+      "id": 8
+    },
+    {
+      "firstName": "New",
+      "lastName": "Author",
+      "id": 9
+    }
+  ]
+}
