@@ -31,9 +31,16 @@
       "id": 8
     },
     {
-      "firstName": "New",
-      "lastName": "Author",
+      "firstName": "Nikita",
+      "lastName": "Ivanov",
+      "patronymic": "Andreevich",
       "id": 9
+    },
+    {
+      "firstName": "Denis",
+      "lastName": "Artemyev",
+      "patronymic": "",
+      "id": 10
     }
   ]
 }

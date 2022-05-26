@@ -7,8 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('speakers');
-  this.route('edit-speaker');
+  this.route('speakers', function() {
+    this.route('detail', { path: '/:id'});
+  });
+  this.route('create-speaker');
   this.route('books');
   this.route('edit-book');
   this.route('404', { path: '*path' });
