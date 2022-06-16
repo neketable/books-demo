@@ -16,11 +16,6 @@
       "lastName": "Poe"
     },
     {
-      "firstName": "Erry",
-      "lastName": "Books",
-      "id": 6
-    },
-    {
       "firstName": "Colley",
       "lastName": "Printley",
       "id": 7
@@ -41,6 +36,76 @@
       "lastName": "Artemyev",
       "patronymic": "",
       "id": 10
+    },
+    {
+      "firstName": "Александр",
+      "lastName": "Никулин",
+      "patronymic": "Иванович",
+      "id": 11
+    },
+    {
+      "firstName": "Aleksandr",
+      "lastName": "Petrenko",
+      "patronymic": "",
+      "id": 12
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "The Clean Coder",
+      "author": "Robert Key",
+      "pages": "501",
+      "isbn": "0137081073",
+      "publishDate": "2011-05-13T14:48:00.000Z",
+      "authorId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Agile Principles, Patterns, and Practices in C#",
+      "author": "Robert Key",
+      "pages": "506",
+      "isbn": "0131857258",
+      "publishDate": "2006-07-20T11:32:00.000Z",
+      "authorId": 1,
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "The Chronicles of Narnia",
+      "author": "Robert Key",
+      "pages": "506",
+      "isbn": "9780007117307",
+      "publishDate": "2008-10-29T10:22:00.000Z",
+      "authorId": 2,
+      "userId": 2
+    },
+    {
+      "title": "25 moments of something",
+      "author": "Robert Key",
+      "pages": "506",
+      "isbn": "84848",
+      "publishDate": "2020-11-02T19:00:00.000Z",
+      "authorId": 1,
+      "id": 5,
+      "userId": 2
+    },
+    {
+      "title": "Awsome Book for Programmers",
+      "author": "Robert Key",
+      "pages": "506",
+      "isbn": "34938475943",
+      "publishDate": "2020-10-31T19:00:00.000Z",
+      "authorId": 1,
+      "id": 6,
+      "userId": 2
+    },
+    {
+      "title": "asd",
+      "author": "asd",
+      "pages": "asd",
+      "id": 7
     }
   ]
 }

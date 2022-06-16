@@ -6,10 +6,15 @@ export default Service.extend({
   init(){
     this._super(...arguments);
     this.set('speakers', A());
+    this.set('books', A());
   },
 
-  async getSpeakers(){
-    let response = await fetch(`${ENV.backendURL}/speakers`);
+  async getSpeakers(search){
+    let queryParams = '';
+    if (search) {
+      queryParams=`?q=${search}`;
+    }
+    let response = await fetch(`${ENV.backendURL}/speakers${queryParams}`);
     let speakers = await response.json();
     this.get('speakers').clear();
     this.get('speakers').pushObjects(speakers);
@@ -32,6 +37,57 @@ export default Service.extend({
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(speaker)
+    });
+  },
+
+  editSpeaker(speaker) {
+    return fetch(`${ENV.backendURL}/speakers/${speaker.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(speaker)
+    });
+  },
+
+  async getBooks(search){
+    let queryParams = '';
+    if (search) {
+      queryParams=`?q=${search}`;
+    }
+    let response = await fetch(`${ENV.backendURL}/books${queryParams}`);
+    let speakers = await response.json();
+    this.get('books').clear();
+    this.get('books').pushObjects(speakers);
+    return this.get('books');
+  },
+
+  getBook(id){
+    return fetch(`${ENV.backendURL}/books/${id}`).then((response) => response.json());
+  },
+
+  deleteBook(book){
+    this.get('books').removeObject(book);
+    return fetch(`${ENV.backendURL}/books/${book.id}`, {method: 'DELETE'});
+  },
+
+  createBook(book) {
+    return fetch(`${ENV.backendURL}/books`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(book)
+    });
+  },
+
+  editBook(book) {
+    return fetch(`${ENV.backendURL}/books/${book.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(book)
     });
   },
 });
