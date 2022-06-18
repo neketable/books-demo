@@ -1,14 +1,21 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
-//import EmberObject from '@ember/object';
 import { get, set } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   dataService: service('data'),
+  // init() {
+  //   this._super(...arguments);
+  //   set(this, 'tags', []);
+  //   set(this, 'uploadData', null);
+  // },
 
   actions: {
     changeTags(newTags) {
       set(this, 'tags', [...newTags]);
+
+      // eslint-disable-next-line no-console
+      console.log(get(this, 'tags'));
     },
 
     async saveBook(e) {
@@ -26,7 +33,7 @@ export default Controller.extend({
       }, uploadData);
 
       set(this, 'isUploadingFile', false);
-      this.transitionToRoute('books');
+      this.transitionToRoute('temp');
     },
 
     changeUploadData(uploadData) {
@@ -36,6 +43,10 @@ export default Controller.extend({
     change() {
       set(this, 'tags', ['1', '2', '3']);
     },
+
+    goToTemp() {
+      this.transitionToRoute('books')
+    }
   },
 
   reset() {
@@ -48,3 +59,4 @@ export default Controller.extend({
     set(this, 'uploadData', null);
   }
 });
+

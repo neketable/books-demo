@@ -3,7 +3,8 @@
     {
       "id": 1,
       "firstName": "Robert",
-      "lastName": "Martin"
+      "lastName": "Martin",
+      "patronymic": "ASdas"
     },
     {
       "id": 2,
@@ -52,60 +53,111 @@
   ],
   "books": [
     {
-      "id": 1,
-      "title": "The Clean Coder",
-      "author": "Robert Key",
-      "pages": "501",
-      "isbn": "0137081073",
-      "publishDate": "2011-05-13T14:48:00.000Z",
-      "authorId": 1,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "Agile Principles, Patterns, and Practices in C#",
-      "author": "Robert Key",
-      "pages": "506",
-      "isbn": "0131857258",
-      "publishDate": "2006-07-20T11:32:00.000Z",
-      "authorId": 1,
-      "userId": 2
-    },
-    {
       "id": 3,
       "title": "The Chronicles of Narnia",
       "author": "Robert Key",
       "pages": "506",
-      "isbn": "9780007117307",
-      "publishDate": "2008-10-29T10:22:00.000Z",
-      "authorId": 2,
-      "userId": 2
+      "bookURL": "sadsa",
+      "tags": [
+        "fdg",
+        "ghj"
+      ],
+      "coverURL": "/uploads/h9u3cdq03ry41-1655514429256.png"
     },
     {
       "title": "25 moments of something",
       "author": "Robert Key",
       "pages": "506",
-      "isbn": "84848",
-      "publishDate": "2020-11-02T19:00:00.000Z",
-      "authorId": 1,
+      "bookURL": "sadsa",
+      "tags": [
+        "d"
+      ],
       "id": 5,
-      "userId": 2
+      "coverURL": "/uploads/traffic-lights (1920x1080)-1655514009602.jpg"
     },
     {
       "title": "Awsome Book for Programmers",
       "author": "Robert Key",
       "pages": "506",
-      "isbn": "34938475943",
-      "publishDate": "2020-10-31T19:00:00.000Z",
-      "authorId": 1,
-      "id": 6,
-      "userId": 2
+      "bookURL": "sadsa",
+      "tags": [],
+      "id": 6
     },
     {
       "title": "asd",
       "author": "asd",
       "pages": "asd",
+      "bookURL": "sadsa",
+      "tags": [],
       "id": 7
+    },
+    {
+      "title": "dag",
+      "author": "sdg",
+      "pages": "4sdg",
+      "tags": [
+        "436",
+        "789"
+      ],
+      "id": 8
+    },
+    {
+      "title": "123",
+      "author": "123",
+      "pages": "123",
+      "tags": [
+        "123",
+        "32",
+        "421"
+      ],
+      "id": 9
+    },
+    {
+      "title": "dfh",
+      "author": "dfdf",
+      "pages": "dfg",
+      "bookURL": "",
+      "tags": [
+        "dfg",
+        "hfd"
+      ],
+      "coverURL": "",
+      "id": 11
+    },
+    {
+      "title": "The Clean Coder",
+      "author": "Robert Key",
+      "pages": "501",
+      "bookURL": "sadsa",
+      "tags": [
+        "dfg",
+        "dsg"
+      ],
+      "coverURL": "",
+      "id": 13
+    },
+    {
+      "title": "uil",
+      "author": "uil",
+      "pages": "yuj",
+      "bookURL": "sdg",
+      "tags": [
+        "dh ",
+        "gfj"
+      ],
+      "coverURL": "/uploads/bqVTfsJcDps-1655513061618.jpg",
+      "id": 14
+    },
+    {
+      "title": "asd",
+      "author": "das",
+      "pages": "12",
+      "bookURL": "321",
+      "tags": [
+        "asd"
+      ],
+      "coverURL": "/uploads/eb3da5f2d1f483f09d06796b9f957570-1655514454091.jpg",
+      "id": 15
     }
   ]
 }

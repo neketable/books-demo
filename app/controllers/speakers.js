@@ -12,11 +12,9 @@ export default Controller.extend({
     deleteSpeaker(speaker) {
       this.get('dataService').deleteSpeaker(speaker);
     },
-    async refreshSpeakers(){
-      console.log(this.search);
-      console.log(this.model);
-      //this.queryParams = search;
-      this.get('dataService').getSpeakers(this.search);
+    refreshSpeakers(){
+        this.set('search', this.get('searchValue'));
+      //this.get('dataService').getSpeakers(this.search);
     }
   },
   // async loadData(){

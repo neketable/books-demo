@@ -5,7 +5,9 @@ import { later } from '@ember/runloop';
 
 export default Route.extend({
   queryParams: {
-    search: true
+    search: {
+      refreshModel: true,
+    }
   },
 
   dataService: service('data'),
@@ -18,7 +20,6 @@ export default Route.extend({
       later(async () => {
         try {
           let speakers = search ? await this.get("dataService").getSpeakers(search) : await this.get("dataService").getSpeakers();
-          console.log(search);
           resolve(speakers);
         }
         catch(e) {
