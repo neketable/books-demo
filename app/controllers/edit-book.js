@@ -1,41 +1,63 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
+import ENV from 'books-demo/config/environment';
 
 export default Controller.extend({
   dataService: service('data'),
 
   actions: {
-    changeTags(newTags) {
-      set(this, 'tags', [...newTags]);
-    },
+    async saveBook(book, uploadData) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          let bookModel = this.get('model');
+          bookModel.set('title', book.title);
+          bookModel.set('author', book.author);
+          bookModel.set('pages', book.pages);
+          bookModel.set('bookURL', book.bookURL);
+          bookModel.set('tags', book.tags);
 
-    async saveBook(e) {
-      e.preventDefault();
+          await bookModel.save();
 
-      set(this, 'isUploadingFile', true);
-      const uploadData = get(this, 'uploadData');
-      await this.get("dataService").editBook({
-        id: this.get('id'),
-        title: this.get('title'),
-        author: this.get('author'),
-        pages: this.get('pages'),
-        bookURL: this.get('bookURL'),
-        tags: this.get('tags'),
-        coverURL: this.get('coverURL'),
-      }, uploadData);
+          if (!uploadData) {
+            resolve();
+            this.transitionToRoute('books');
+          }
 
-      set(this, 'isUploadingFile', false);
-      this.transitionToRoute('books');
-    },
+          uploadData.url = `${ENV.fileUploadURL}`;
+          uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
+            try {
+              const dataToUpload = {
+                entityName: 'books',
+                id: bookModel.id,
+                fileName: result.filename
+              };
 
-    changeUploadData(uploadData) {
-      set(this, 'uploadData', uploadData);
-    },
+              await fetch(`${ENV.backendURL}/saveURL`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToUpload)
+              });
 
-    change() {
-      set(this, 'tags', ['1', '2', '3']);
-    },
+              // eslint-disable-next-line no-console
+              console.log('Ok');
+              resolve();
+              this.transitionToRoute('books');
+            }
+            catch (e) {
+              reject(e);
+            }
+          }).fail((jqXhr, textStatus, errorThrown) => {
+            reject(errorThrown);
+          });
+        }
+        catch (e) {
+          reject(e);
+        }
+      });
+      }
   },
 
   reset() {

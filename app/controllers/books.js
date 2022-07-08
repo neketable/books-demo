@@ -8,8 +8,8 @@ export default Controller.extend({
   dataService: service('data'),
 
   actions:{
-    deleteBook(book) {
-      this.get('dataService').deleteBook(book);
+    async deleteBook(book) {
+      await book.destroyRecord();
     },
     refreshBooks(){
       this.set('search', this.get('searchValue'));

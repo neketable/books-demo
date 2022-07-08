@@ -1,42 +1,69 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-//import EmberObject from '@ember/object';
-import { get, set } from '@ember/object';
+import EmberObject from '@ember/object';
+import { set } from '@ember/object';
+import ENV from 'books-demo/config/environment';
 
 export default Controller.extend({
   dataService: service('data'),
 
-  actions: {
-    changeTags(newTags) {
-      set(this, 'tags', [...newTags]);
-    },
-
-    async saveBook(e) {
-      e.preventDefault();
-
-      set(this, 'isUploadingFile', true);
-      const uploadData = get(this, 'uploadData');
-      await this.get("dataService").createBook({
-        title: this.get('title'),
-        author: this.get('author'),
-        pages: this.get('pages'),
-        bookURL: this.get('bookURL'),
-        tags: this.get('tags'),
-        coverURL: '',
-      }, uploadData);
-
-      set(this, 'isUploadingFile', false);
-      this.transitionToRoute('books');
-    },
-
-    changeUploadData(uploadData) {
-      set(this, 'uploadData', uploadData);
-    },
-
-    change() {
-      set(this, 'tags', ['1', '2', '3']);
-    },
+  init(){
+    this._super(...arguments);
+    this.set('book', EmberObject.create());
+    this.get('book').set('title', '');
+    this.get('book').set('author', '');
+    this.get('book').set('pages', '');
+    this.get('book').set('bookURL', '');
+    this.get('book').set('tags', []);
+    this.get('book').set('coverURL', '');
   },
+  actions: {
+    async saveBook(book, uploadData) {
+      // await this.get('dataService').createBook(book, uploadData)
+      return new Promise(async (resolve, reject) => {
+        try {
+          let bookModel = this.get('store').createRecord('book', book);
+          await bookModel.save();
+
+          if (!uploadData) {
+            resolve();
+          }
+
+          uploadData.url = `${ENV.fileUploadURL}`;
+          uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
+            try {
+              const dataToUpload = {
+                entityName: 'books',
+                id: bookModel.id,
+                fileName: result.filename
+              };
+
+              await fetch(`${ENV.backendURL}/saveURL`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToUpload)
+              });
+
+              // eslint-disable-next-line no-console
+              console.log('Ok');
+              resolve();
+              this.transitionToRoute('books');
+            }
+            catch (e) {
+              reject(e);
+            }
+          }).fail((jqXhr, textStatus, errorThrown) => {
+            reject(errorThrown);
+          });
+        }
+        catch (e) {
+          reject(e);
+        }
+      });
+      }
+    },
 
   reset() {
     set(this, 'isUploadingFile', false);

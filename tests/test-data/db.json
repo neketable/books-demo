@@ -4,7 +4,7 @@
       "id": 1,
       "firstName": "Robert",
       "lastName": "Martin",
-      "patronymic": "ASdas"
+      "patronymic": "A"
     },
     {
       "id": 2,
@@ -76,30 +76,13 @@
       "coverURL": "/uploads/traffic-lights (1920x1080)-1655514009602.jpg"
     },
     {
-      "title": "Awsome Book for Programmers",
+      "title": "Awesome Book for Programmers",
       "author": "Robert Key",
-      "pages": "506",
+      "pages": 506,
       "bookURL": "sadsa",
       "tags": [],
-      "id": 6
-    },
-    {
-      "title": "asd",
-      "author": "asd",
-      "pages": "asd",
-      "bookURL": "sadsa",
-      "tags": [],
-      "id": 7
-    },
-    {
-      "title": "dag",
-      "author": "sdg",
-      "pages": "4sdg",
-      "tags": [
-        "436",
-        "789"
-      ],
-      "id": 8
+      "id": 6,
+      "coverURL": "/uploads/mifB2kjgQ1oa8fy63AOg41UtfenmtY1m1ssihs0EQVk-1655974511866.jpg"
     },
     {
       "title": "123",
@@ -137,9 +120,9 @@
       "id": 13
     },
     {
-      "title": "uil",
+      "title": "uil88",
       "author": "uil",
-      "pages": "yuj",
+      "pages": 123,
       "bookURL": "sdg",
       "tags": [
         "dh ",
@@ -151,13 +134,74 @@
     {
       "title": "asd",
       "author": "das",
-      "pages": "12",
+      "pages": 12,
       "bookURL": "321",
       "tags": [
-        "asd"
+        "asd",
+        "1521 "
       ],
-      "coverURL": "/uploads/eb3da5f2d1f483f09d06796b9f957570-1655514454091.jpg",
+      "coverURL": "",
       "id": 15
+    },
+    {
+      "title": "8",
+      "author": "8",
+      "pages": "8",
+      "bookURL": "8",
+      "tags": [
+        "8"
+      ],
+      "coverURL": "/uploads/2-1656704304937.jpg",
+      "id": 16
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "dateOfReview": "2020-11-13T19:00:00.000Z",
+      "markBook": 65,
+      "presentationURL": "sad",
+      "videoURL": "dsad",
+      "report": "dsassss",
+      "bookId": 3,
+      "speakerId": 1,
+      "meetingId": 1
+    },
+    {
+      "id": 3,
+      "dateOfReview": "2021-11-13T11:00:00.000Z",
+      "markBook": 77,
+      "presentationURL": "sad",
+      "videoURL": "dsad",
+      "report": "dsassss",
+      "bookId": 6,
+      "speakerId": 2,
+      "meetingId": 2
+    },
+    {
+      "dateOfReview": null,
+      "markBook": 70,
+      "presentationURL": "123",
+      "videoURL": "123",
+      "report": "авшптшщвпвтшапаола",
+      "bookId": 9,
+      "speakerId": 11,
+      "meetingId": 1,
+      "id": 4
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "dateOfMeeting": "2020-11-13T19:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "dateOfMeeting": "2021-05-06T19:00:00.000Z"
+    },
+    {
+      "dateOfMeeting": "2022-06-30T19:00:00.000Z",
+      "id": 4
     }
   ]
 }

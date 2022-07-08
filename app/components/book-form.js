@@ -1,20 +1,11 @@
 import Component from '@ember/component';
-//import { get, set } from '@ember/object';
+import { get, set } from '@ember/object';
 
 export default Component.extend({
   actions: {
     submitForm(e) {
-      // e.preventDefault();
-      // this.onsubmit({
-      //   id: this.get('idBook'),
-      //   title: this.get('title'),
-      //   author: this.get('author'),
-      //   pages: this.get('pages'),
-      // })
-
       e.preventDefault();
-      //set(this, 'isUploadingFile', true);
-      //const uploadData = get(this, 'uploadData');
+      const uploadData = get(this, 'uploadData');
       this.onsubmit({
         id: this.get('idBook'),
         title: this.get('title'),
@@ -23,10 +14,21 @@ export default Component.extend({
         bookURL: this.get('bookURL'),
         tags: this.get('tags'),
         coverURL: '',
-      });
+      }, uploadData);
 
       //set(this, 'isUploadingFile', false);
-    }
+    },
+    changeUploadData(uploadData) {
+      set(this, 'uploadData', uploadData);
+    },
+
+    changeTags(newTags) {
+      set(this, 'tags', [...newTags]);
+    },
+
+    change() {
+      set(this, 'tags', ['1', '2', '3']);
+    },
   },
 
   didReceiveAttrs() {
@@ -39,6 +41,7 @@ export default Component.extend({
       pages: this.get('book.pages'),
       bookURL: this.get('book.bookURL'),
       tags: this.get('book.tags'),
+      coverURL: this.get('book.coverURL')
     })
-  }
+  },
 });

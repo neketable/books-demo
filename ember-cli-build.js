@@ -25,12 +25,12 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('vendor/tagsinput.css');
-
+  app.import('vendor/bootstrap-datepicker.css');
   app.import('vendor/jquery.flexberry.downloadFile.js');
   app.import('vendor/jquery.blobajaxtransport.js');
 
   const jsFiles = funnel('vendor', {
-    files: ['popper.min.js', 'tagsinput.js', 'jquery-ui.js'],
+    files: ['popper.min.js', 'tagsinput.js', 'jquery-ui.js', 'bootstrap-datepicker.min.js', 'bootstrap-datepicker.ru.min.js', 'bootstrap-select.min.js'],
     destDir: 'js'
   });
 
