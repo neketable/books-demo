@@ -7,6 +7,7 @@ export default DS.Model.extend({
   patronymic: DS.attr('string'),
 
   reviews: DS.hasMany('review'),
+  user: DS.belongsTo('user'),
 
   fullName: computed('firstName', 'lastName', function() {
     return `${this.get('firstName')} ${this.get('lastName')}`;

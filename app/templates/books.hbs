@@ -2,15 +2,17 @@
   <div class="htop">
     <h2 class="text-center">Книги</h2>
     <div class="form-row navbar-panel justify-content-between">
-      {{#link-to "create-book"}}
-      <div class="col-md-auto">
-        <button class="btn btn-outline-primary my-2" type="button" title="Добавить книгу">
-          <svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-          </svg>
-        </button>
-      </div>
-      {{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to "create-book"}}
+        <div class="col-md-auto">
+          <button class="btn btn-outline-primary my-2" type="button" title="Добавить книгу">
+            <svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+          </button>
+        </div>
+        {{/link-to}}
+      {{/if}}
       <div class="col-md-auto">
         <form class="form-inline">
           {{input type="search" placeholder="Найти по полям" class="form-control mr-2 search-long" aria-label="Найти по полям" value=searchValue}}
@@ -53,18 +55,20 @@
           </ul>
           <div class="card-footer">
             <div class="row">
-              <div class="col">
-                <a href="#" class="card-link line-offset">Описание</a>
-              </div>
-              <div class="col text-right">
-                <button type="button" class="btn btn-edit">{{book-item idBook=book.id}}</button>
-                <button type="button" class="btn btn-trash" onclick={{action "deleteBook" book}}>
-                  <svg viewBox="0 0 16 16" class="bi bi-trash card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                  </svg>
-                </button>
-              </div>
+              {{#if (await (can "edit book" book))}}
+                <div class="col">
+                  <a href="#" class="card-link line-offset">Описание</a>
+                </div>
+                <div class="col text-right">
+                  <button type="button" class="btn btn-edit">{{book-item idBook=book.id}}</button>
+                  <button type="button" class="btn btn-trash" onclick={{action "deleteBook" book}}>
+                    <svg viewBox="0 0 16 16" class="bi bi-trash card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                  </button>
+                </div>
+              {{/if}}
             </div>
           </div>
         </div>

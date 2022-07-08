@@ -2,24 +2,19 @@
 	<div class="htop">
 		<h2 class="text-center">Встречи клуба</h2>
 		<div class="form-row navbar-panel justify-content-between align-items-end">
-      {{#link-to "create-meeting"}}
-			<div class="col-md-1">
-				<button class="btn btn-outline-primary my-2" type="button" title="Добавить встречу">
-					<svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-					</svg>
-				</button>
-			</div>
-      {{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to "create-meeting"}}
+			  <div class="col-md-1">
+			  	<button class="btn btn-outline-primary my-2" type="button" title="Добавить встречу">
+			  		<svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			  			<path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+			  		</svg>
+			  	</button>
+			  </div>
+        {{/link-to}}
+      {{/if}}
 			<div class="col-md-3 align-top">
 				<h5>Спикер</h5>
-				{{!-- <select class="selectpicker form-control dropdown-filter-control" data-live-search="true" data-size="5" title="Спикер...">
-					<option>Фамилия имя</option>
-					<option>Фамилия имя</option>
-					<option>Фамилия имя</option>
-					<option>Фамилия имя</option>
-					<option>Фамилия имя</option>
-				</select> --}}
           {{#power-select
             options=model.speakers
             selected=selectedSpeaker
@@ -88,6 +83,7 @@
 						</div>
 					</div>
 				</div>
+        {{#if (await (can "edit meeting" meeting))}}
 				<div class="col-md-auto">
 					<button type="button" class="btn btn-edit">{{meeting-item idMeeting=meeting.id}}</button>
 					<button type="button" class="btn btn-trash" onclick={{action "deleteMeeting" meeting}}>
@@ -97,6 +93,7 @@
 						</svg>
 					</button>
 				</div>
+        {{/if}}
 			</div>
 			<h4>Список докладов</h4>
 			<ul class="list-group">

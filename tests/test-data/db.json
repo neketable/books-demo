@@ -4,51 +4,60 @@
       "id": 1,
       "firstName": "Robert",
       "lastName": "Martin",
-      "patronymic": "A"
+      "patronymic": "A",
+      "userId": 1
     },
     {
       "id": 2,
       "firstName": "C.S.",
-      "lastName": "Lewis"
+      "lastName": "Lewis",
+      "userId": 1
     },
     {
       "id": 3,
       "firstName": "Edgar",
-      "lastName": "Poe"
+      "lastName": "Poe",
+      "userId": 2
     },
     {
       "firstName": "Colley",
       "lastName": "Printley",
-      "id": 7
+      "id": 7,
+      "userId": 1
     },
     {
       "firstName": "Rolling",
       "lastName": "Bowley",
-      "id": 8
+      "id": 8,
+      "userId": 2
     },
     {
       "firstName": "Nikita",
       "lastName": "Ivanov",
       "patronymic": "Andreevich",
-      "id": 9
+      "id": 9,
+      "userId": 2
     },
     {
       "firstName": "Denis",
       "lastName": "Artemyev",
       "patronymic": "",
-      "id": 10
+      "id": 10,
+      "userId": 2
     },
     {
       "firstName": "Александр",
       "lastName": "Никулин",
       "patronymic": "Иванович",
-      "id": 11
+      "id": 11,
+      "userId": 2
     },
     {
       "firstName": "Aleksandr",
       "lastName": "Petrenko",
       "patronymic": "",
-      "id": 12
+      "id": 12,
+      "userId": 2
     }
   ],
   "books": [
@@ -62,7 +71,8 @@
         "fdg",
         "ghj"
       ],
-      "coverURL": "/uploads/h9u3cdq03ry41-1655514429256.png"
+      "coverURL": "/uploads/h9u3cdq03ry41-1655514429256.png",
+      "userId": 2
     },
     {
       "title": "25 moments of something",
@@ -73,7 +83,8 @@
         "d"
       ],
       "id": 5,
-      "coverURL": "/uploads/traffic-lights (1920x1080)-1655514009602.jpg"
+      "coverURL": "/uploads/traffic-lights (1920x1080)-1655514009602.jpg",
+      "userId": 2
     },
     {
       "title": "Awesome Book for Programmers",
@@ -82,7 +93,8 @@
       "bookURL": "sadsa",
       "tags": [],
       "id": 6,
-      "coverURL": "/uploads/mifB2kjgQ1oa8fy63AOg41UtfenmtY1m1ssihs0EQVk-1655974511866.jpg"
+      "coverURL": "/uploads/mifB2kjgQ1oa8fy63AOg41UtfenmtY1m1ssihs0EQVk-1655974511866.jpg",
+      "userId": 2
     },
     {
       "title": "123",
@@ -93,7 +105,8 @@
         "32",
         "421"
       ],
-      "id": 9
+      "id": 9,
+      "userId": 2
     },
     {
       "title": "dfh",
@@ -105,7 +118,8 @@
         "hfd"
       ],
       "coverURL": "",
-      "id": 11
+      "id": 11,
+      "userId": 2
     },
     {
       "title": "The Clean Coder",
@@ -193,14 +207,43 @@
   "meetings": [
     {
       "id": 1,
-      "dateOfMeeting": "2020-11-13T19:00:00.000Z"
+      "dateOfMeeting": "2020-11-13T19:00:00.000Z",
+      "userId": 2
     },
     {
       "id": 2,
-      "dateOfMeeting": "2021-05-06T19:00:00.000Z"
+      "dateOfMeeting": "2021-05-06T19:00:00.000Z",
+      "userId": 2
     },
     {
       "dateOfMeeting": "2022-06-30T19:00:00.000Z",
+      "id": 4,
+      "userId": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "a@a.ru",
+      "password": "3c1efb017ea632c6ff5fab2bf62cdcd8c5cf667bdcdc5b25b4c44e16770f1064",
+      "passwordConfirmation": "3c1efb017ea632c6ff5fab2bf62cdcd8c5cf667bdcdc5b25b4c44e16770f1064",
+      "id": 1
+    },
+    {
+      "email": "admin@admin.ru",
+      "password": "aed439235437c68773dcb392849729f25edc0dd67119722c2a172e3fa5350711",
+      "passwordConfirmation": "aed439235437c68773dcb392849729f25edc0dd67119722c2a172e3fa5350711",
+      "id": 2
+    },
+    {
+      "email": "r@r.ru",
+      "password": "c6ede205ca77adfe0f4014aa83d89978e184c85f6e49037a74c28aefff38f75b",
+      "passwordConfirmation": "c6ede205ca77adfe0f4014aa83d89978e184c85f6e49037a74c28aefff38f75b",
+      "id": 3
+    },
+    {
+      "email": "tt@t.ru",
+      "password": "9e452ce87b8ec2e4a0baff7df1e261054a4952e8c8772145b0badf3d850f673e",
+      "passwordConfirmation": "9e452ce87b8ec2e4a0baff7df1e261054a4952e8c8772145b0badf3d850f673e",
       "id": 4
     }
   ]

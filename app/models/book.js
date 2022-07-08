@@ -9,4 +9,5 @@ export default DS.Model.extend({
   coverURL: DS.attr(),
 
   reviews: DS.hasMany('review'),
+  user: DS.belongsTo('user')
 });

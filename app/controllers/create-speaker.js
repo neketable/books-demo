@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import EmberObject from '@ember/object';
 
 export default Controller.extend({
+  currentUser: service(),
   init(){
     this._super(...arguments);
     this.set('speaker', EmberObject.create());
@@ -10,8 +11,6 @@ export default Controller.extend({
     this.get('speaker').set('lastName', '');
     this.get('speaker').set('patronymic', '');
   },
-
-  dataService: service('data'),
 
   actions: {
     async saveSpeaker(speaker){

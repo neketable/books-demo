@@ -3,6 +3,7 @@
 	<div class="htop">
 		<h2 class="text-center">Спикеры</h2>
 		<div class="form-row navbar-panel justify-content-between">
+      {{#if session.isAuthenticated}}
       {{#link-to "create-speaker"}}
 			<div class="col-md-auto">
 				<button class="btn btn-outline-primary my-2" type="button" title="Добавить спикера">
@@ -12,6 +13,7 @@
 				</button>
 			</div>
       {{/link-to}}
+      {{/if}}
 			<div class="col-md-auto">
 				<form class="form-inline">
           {{input type="text" placeholder="ФИО" class="form-control mr-2 search-long search-only" aria-label="Спикер" value=searchValue}}
@@ -29,6 +31,7 @@
 			  		</div>
 			  		<div class="card-footer">
 			  			<div class="row">
+                {{#if (await (can "edit speaker" speaker))}}
 			  				<div class="col">
 			  				</div>
 			  				<div class="col text-right">
@@ -40,6 +43,7 @@
 			  						</svg>
 			  					</button>
 			  				</div>
+                {{/if}}
 			  			</div>
 			  	 	</div>
 			    </div>
