@@ -4,6 +4,7 @@ import EmberObject from '@ember/object';
 
 export default Controller.extend({
   currentUser: service(),
+  speakerModel: null,
   init(){
     this._super(...arguments);
     this.set('speaker', EmberObject.create());
@@ -15,7 +16,12 @@ export default Controller.extend({
   actions: {
     async saveSpeaker(speaker){
       let speakerModel = this.get('store').createRecord('speaker', speaker);
-
+      // speakerModel.validate().then(({validations}) => {
+      //   if(validations.get('isValid')){
+      //     speakerModel.save();
+      //     this.transitionToRoute('speakers');
+      //   }
+      // })
       await speakerModel.save();
       this.transitionToRoute('speakers');
     }

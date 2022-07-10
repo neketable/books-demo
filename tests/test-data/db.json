@@ -167,6 +167,18 @@
       ],
       "coverURL": "/uploads/2-1656704304937.jpg",
       "id": 16
+    },
+    {
+      "title": "hh",
+      "author": "wqrwq",
+      "pages": 123,
+      "bookURL": "https://www.youtube.com/watch?v=CbGYnG6ZZx0",
+      "tags": [
+        "123",
+        "asfas"
+      ],
+      "coverURL": "",
+      "id": 17
     }
   ],
   "reviews": [
@@ -202,6 +214,28 @@
       "speakerId": 11,
       "meetingId": 1,
       "id": 4
+    },
+    {
+      "dateOfReview": null,
+      "markBook": 15,
+      "presentationURL": "13",
+      "videoURL": "13",
+      "report": "13",
+      "bookId": 3,
+      "speakerId": 2,
+      "meetingId": null,
+      "id": 5
+    },
+    {
+      "dateOfReview": null,
+      "markBook": 15,
+      "presentationURL": "13",
+      "videoURL": "13",
+      "report": "13",
+      "bookId": 3,
+      "speakerId": 2,
+      "meetingId": null,
+      "id": 6
     }
   ],
   "meetings": [
@@ -245,6 +279,12 @@
       "password": "9e452ce87b8ec2e4a0baff7df1e261054a4952e8c8772145b0badf3d850f673e",
       "passwordConfirmation": "9e452ce87b8ec2e4a0baff7df1e261054a4952e8c8772145b0badf3d850f673e",
       "id": 4
+    },
+    {
+      "email": "d@d.ru",
+      "password": "894841f204f2fa707adc2e3e7dee5e92620cb88052b445beec66e26bc3667b4a",
+      "passwordConfirmation": "894841f204f2fa707adc2e3e7dee5e92620cb88052b445beec66e26bc3667b4a",
+      "id": 5
     }
   ]
 }

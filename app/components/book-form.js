@@ -1,10 +1,43 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Component.extend({
+const Validations = buildValidations({
+  title: [
+    validator('ds-error'),
+    validator('presence', true),
+  ],
+  author: [
+    validator('ds-error'),
+    validator('presence', true),
+  ],
+  pages: [
+    validator('ds-error'),
+    validator('presence', true),
+    validator('number', {
+      allowString: true,
+      integer: true,
+    })
+  ],
+  bookURL: [
+    validator('ds-error'),
+    validator('presence', true),
+    validator('format', {
+      type: 'url'
+    })
+  ],
+  tags: [
+    validator('ds-error'),
+    validator('presence', true),
+  ],
+});
+
+export default Component.extend(Validations, {
   actions: {
     submitForm(e) {
       e.preventDefault();
+      set(this, 'isInvalid', !this.get('validations.isValid'));
+      if (!get(this, 'isInvalid')) {
       const uploadData = get(this, 'uploadData');
       this.onsubmit({
         id: this.get('idBook'),
@@ -15,8 +48,7 @@ export default Component.extend({
         tags: this.get('tags'),
         coverURL: '',
       }, uploadData);
-
-      //set(this, 'isUploadingFile', false);
+    }
     },
     changeUploadData(uploadData) {
       set(this, 'uploadData', uploadData);

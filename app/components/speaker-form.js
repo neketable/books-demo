@@ -1,20 +1,48 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { validator, buildValidations } from 'ember-cp-validations';
+import { get, set } from '@ember/object';
+import { translationMacro as t } from "ember-i18n";
+import { computed } from '@ember/object';
 
-export default Component.extend({
+const Validations = buildValidations({
+  firstName: [
+    validator('ds-error'),
+    validator('presence', {
+      presence: true,
+      // message: computed('model.firstName', 'model.i18n.locale', function () {
+      //   return this.get(this, 'model.i18n').t('errors.aaa')
+      // }),
+    }),
+  ],
+  lastName: [
+    validator('ds-error'),
+    validator('presence', true),
+  ],
+  patronymic: [
+    validator('ds-error'),
+    validator('presence', true),
+  ],
+});
+
+export default Component.extend(Validations, {
   currentUser: service(),
+  i18n: service(),
+  isInvalid: false,
 
   actions: {
     submitForm(e) {
       e.preventDefault();
-      this.onsubmit({
-        id: this.get('idAuthor'),
-        firstName: this.get('firstName'),
-        lastName: this.get('lastName'),
-        patronymic: this.get('patronymic'),
-        user: this.get('currentUser.user')
+        set(this, 'isInvalid', !this.get('validations.isValid'));
+          if (!get(this, 'isInvalid')) {
+            this.onsubmit({
+            id: this.get('idAuthor'),
+            firstName: this.get('firstName'),
+            lastName: this.get('lastName'),
+            patronymic: this.get('patronymic'),
+            user: this.get('currentUser.user')
       })
-    }
+    }}
   },
 
   didReceiveAttrs() {

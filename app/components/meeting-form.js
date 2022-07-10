@@ -1,14 +1,27 @@
 import Component from '@ember/component';
+import { get, set } from '@ember/object';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Component.extend({
+const Validations = buildValidations({
+  dateOfMeeting: [
+    validator('ds-error'),
+    validator('presence', true),
+    validator('date')
+  ]
+});
+
+export default Component.extend(Validations, {
   actions: {
     submitForm(e) {
       e.preventDefault();
+      set(this, 'isInvalid', !this.get('validations.isValid'));
+      if (!get(this, 'isInvalid')) {
       this.onsubmit({
         id: this.get('idMeeting'),
         dateOfMeeting: this.get('dateOfMeeting'),
         reviews: this.get('reviews'),
       })
+    }
     },
     async deleteReview(review) {
       await review.destroyRecord();

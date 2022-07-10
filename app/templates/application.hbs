@@ -11,43 +11,49 @@
 		  <ul class="nav navbar-nav navigation-main">
 		    <li class="nav-item">
           {{#link-to "index" class="nav-link"}}
-		    	  Рабочий стол <span class="sr-only">(текущий)</span>
+		    	  {{t "menu.desktop"}} <span class="sr-only">(текущий)</span>
           {{/link-to}}
 		    </li>
 		    <li class="nav-item">
           {{#link-to "meeting" class="nav-link"}}
-            Встречи клуба
+            {{t "menu.meetings"}}
           {{/link-to}}
 		    </li>
 		    <li class="nav-item">
           {{#link-to "books" class="nav-link"}}
-            Книги
+            {{t "menu.books"}}
           {{/link-to}}
 		    </li>
 		    <li class="nav-item">
 		    	{{#link-to "speakers" class="nav-link"}}
-            Спикеры
+            {{t "menu.speakers"}}
           {{/link-to}}
 		    </li>
 		    <li class="nav-item">
-		    	<a class="nav-link text-success" href="#">Оставить заявку</a>
+		    	<a class="nav-link text-success" href="#">{{t "menu.request"}}</a>
 		    </li>
 		    <li class="nav-item">
-		    	<a class="nav-link text-primary" href="#">Запланировать</a>
+		    	<a class="nav-link text-primary" href="#">{{t "menu.plan"}}</a>
 		    </li>
-		  </ul>
+      </ul>
+        <div class="nav-item">
+          <select id="languageSelect" onchange={{action "changeLocale"}}>
+            <option value="ru" selected={{isRussian}}>Русский</option>
+            <option value="en" selected={{isEnglish}}>Английский</option>
+          </select>
+		    </div>
 		  <ul class="nav navbar-nav">
         {{#if session.isAuthenticated}}
-          <li><a href="#" onclick={{action "logout"}}>Выйти</a></li>
+          <li><a href="#" onclick={{action "logout"}}>{{t "menu.logout"}}</a></li>
         {{else}}
 		      <li class="nav-item">
             {{#link-to "register" class="nav-link text-info"}}
-              Регистрация
+              {{t "menu.register"}}
             {{/link-to}}
 		      </li>
 		      <li class="nav-item">
             {{#link-to "login" class="nav-link"}}
-              Войти
+              {{t "menu.login"}}
             {{/link-to}}
 		      </li>
         {{/if}}

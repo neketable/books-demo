@@ -1,20 +1,38 @@
 import Component from '@ember/component';
 import fetch from 'fetch';
 import ENV from 'books-demo/config/environment';
+import { validator, buildValidations } from 'ember-cp-validations';
+import { get, set } from '@ember/object';
 
-export default Component.extend({
+const Validations = buildValidations({
+  email: [
+    validator('ds-error'),
+    validator('presence', true),
+    validator('format', {
+      type: 'email',
+    })
+  ],
+  password: [
+    validator('ds-error'),
+    validator('presence', true),
+  ]
+});
+
+export default Component.extend(Validations, {
   iAmRobot: true,
   reset: false,
 
   actions: {
     async saveUser(e) {
       e.preventDefault();
-
+      set(this, 'isInvalid', !this.get('validations.isValid'));
+      if (!get(this, 'isInvalid')) {
       this.get('onSubmit')({
         email: this.email,
         password: this.password,
         passwordConfirmation: this.passwordConfirmation
       });
+    }
     },
     async verified(key) {
       try {

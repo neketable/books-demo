@@ -3,9 +3,19 @@
   <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
   <div class="form-floating">
     {{input type="email" class="form-control" placeholder="name@example.com" value=email}}
+    {{#if (and isInvalid (v-get this 'email' 'isInvalid'))}}
+      <span class="form-floating">
+        {{v-get this 'email' 'message'}}
+      </span>
+    {{/if}}
   </div>
   <div class="form-floating">
     {{input type="password" class="form-control" placeholder="Пароль" value=password}}
+    {{#if (and isInvalid (v-get this 'password' 'isInvalid'))}}
+      <span class="form-floating">
+        {{v-get this 'password' 'message'}}
+      </span>
+    {{/if}}
   </div>
   {{#each errors.email as |error|}}
     <span class="form-floating">{{error.message}}</span>

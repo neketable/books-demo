@@ -3,18 +3,33 @@
 		<label class="col-sm-2 col-form-label text-right">Фамилия</label>
 		<div class="col-sm-10">
       {{input type="text" placeholder="Введите фамилию" value=lastName class="form-control form-control-lg"}}
+      {{#if (and isInvalid (v-get this 'lastName' 'isInvalid'))}}
+      <span class="col-sm-10">
+        {{v-get this 'lastName' 'message'}}
+      </span>
+      {{/if}}
 		</div>
 	</div>
 	<div class="form-group row">
 		<label class="col-sm-2 col-form-label text-right">Имя</label>
 		<div class="col-sm-10">
       {{input type="text" placeholder="Введите имя" value=firstName class="form-control form-control-lg"}}
+      {{#if (and isInvalid (v-get this 'firstName' 'isInvalid'))}}
+      <span class="col-sm-10">
+        {{v-get this 'firstName' 'message'}}
+      </span>
+      {{/if}}
 		</div>
 	</div>
 	<div class="form-group row">
 		<label class="col-sm-2 col-form-label text-right big">Отчество</label>
 		<div class="col-sm-10">
       {{input type="text" placeholder="Введите отчество" value=patronymic class="form-control form-control-lg"}}
+      {{#if (and isInvalid (v-get this 'patronymic' 'isInvalid'))}}
+      <span class="col-sm-10">
+        {{v-get this 'patronymic' 'message'}}
+      </span>
+      {{/if}}
 		</div>
 	</div>
 	<div class="form-group row">
