@@ -16,8 +16,8 @@
       {{/if}}
 			<div class="col-md-auto">
 				<form class="form-inline">
-          {{input type="text" placeholder="ФИО" class="form-control mr-2 search-long search-only" aria-label="Спикер" value=searchValue}}
-					<button class="btn btn-primary my-2" onclick={{action "refreshSpeakers"}}>Найти</button>
+          {{input type="text" placeholder="ФИО" class="form-control mr-2 search-long search-only" aria-label="Спикер" input=(action "refreshSpeakers") value=searchValue}}
+					{{!-- <button class="btn btn-primary my-2" onclick={{action "refreshSpeakers"}}>Найти</button> --}}
 				</form>
 			</div>
 		</div>
