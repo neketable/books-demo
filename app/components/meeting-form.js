@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
 import { validator, buildValidations } from 'ember-cp-validations';
+import { inject as service } from '@ember/service';
 
 const Validations = buildValidations({
   dateOfMeeting: [
@@ -11,6 +12,9 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
+  currentUser: service(),
+  i18n: service(),
+  isInvalid: false,
   actions: {
     submitForm(e) {
       e.preventDefault();
@@ -20,6 +24,7 @@ export default Component.extend(Validations, {
         id: this.get('idMeeting'),
         dateOfMeeting: this.get('dateOfMeeting'),
         reviews: this.get('reviews'),
+        user: this.get('currentUser.user'),
       })
     }
     },

@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
 export default Route.extend({
   queryParams: {
@@ -10,8 +9,6 @@ export default Route.extend({
       refreshModel: true,
     }
   },
-
-  dataService: service('data'),
 
   model({search, searchTags}){
     const query = {

@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
 import { validator, buildValidations } from 'ember-cp-validations';
+import { inject as service } from '@ember/service';
 
 const Validations = buildValidations({
   title: [
@@ -33,6 +34,9 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
+  currentUser: service(),
+  i18n: service(),
+  isInvalid: false,
   actions: {
     submitForm(e) {
       e.preventDefault();
@@ -46,6 +50,7 @@ export default Component.extend(Validations, {
         pages: this.get('pages'),
         bookURL: this.get('bookURL'),
         tags: this.get('tags'),
+        user: this.get('currentUser.user'),
         coverURL: '',
       }, uploadData);
     }

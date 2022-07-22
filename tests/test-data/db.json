@@ -58,6 +58,13 @@
       "patronymic": "",
       "id": 12,
       "userId": 2
+    },
+    {
+      "firstName": "4",
+      "lastName": "4",
+      "patronymic": "4",
+      "userId": 2,
+      "id": 13
     }
   ],
   "books": [
@@ -179,6 +186,30 @@
       ],
       "coverURL": "",
       "id": 17
+    },
+    {
+      "title": "12",
+      "author": "12",
+      "pages": 12,
+      "bookURL": "https://github.com/neketable",
+      "tags": [
+        "12"
+      ],
+      "coverURL": "",
+      "userId": 2,
+      "id": 18
+    },
+    {
+      "title": "12",
+      "author": "12",
+      "pages": 12,
+      "bookURL": "https://github.com/neketable",
+      "tags": [
+        "12"
+      ],
+      "coverURL": "",
+      "userId": 2,
+      "id": 19
     }
   ],
   "reviews": [

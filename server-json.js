@@ -247,11 +247,13 @@ function responseInterceptor(req, res, next) {
 
     if (req.method === 'DELETE') {
       let urlSegms = req.url.split('/');
+      console.log(urlSegms);
       let idStr = urlSegms[urlSegms.length - 1];
       let id = parseInt(idStr);
       id = isNaN(id) ? idStr : id;
 
       let newBody = Object.assign({}, JSON.parse(body));
+      console.log(newBody);
       newBody.id = id;
       arguments[0] = JSON.stringify(newBody);
     }

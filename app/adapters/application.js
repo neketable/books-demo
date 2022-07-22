@@ -34,10 +34,6 @@ export default DS.JSONAPIAdapter.extend({
       url += '?_expand=meeting';
     }
 
-    // if (modelName === 'review' && requestType === 'findAll') {
-    //   url += '?_expand=speaker';
-    // }
-
     return url;
   },
   handleResponse(status, headers, payload) {
