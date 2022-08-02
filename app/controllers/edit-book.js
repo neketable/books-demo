@@ -5,6 +5,7 @@ import ENV from 'books-demo/config/environment';
 
 export default Controller.extend({
   dataService: service('data'),
+  errorService: service(),
 
   actions: {
     async saveBook(book, uploadData) {
@@ -54,6 +55,9 @@ export default Controller.extend({
           });
         }
         catch (e) {
+          let err = this.get('errorService').createLog(e);
+          let errorModel = this.get('store').createRecord('error', err);
+          await errorModel.save();
           reject(e);
         }
       });

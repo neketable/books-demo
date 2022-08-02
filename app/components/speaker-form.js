@@ -2,8 +2,8 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { validator, buildValidations } from 'ember-cp-validations';
 import { get, set } from '@ember/object';
-import { translationMacro as t } from "ember-i18n";
-import { computed } from '@ember/object';
+// import { translationMacro as t } from "ember-i18n";
+// import { computed } from '@ember/object';
 
 const Validations = buildValidations({
   firstName: [
@@ -26,13 +26,15 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
+  errorService: service(),
   currentUser: service(),
   i18n: service(),
   isInvalid: false,
 
   actions: {
     submitForm(e) {
-      e.preventDefault();
+      try{
+        e.preventDefault();
         set(this, 'isInvalid', !this.get('validations.isValid'));
           if (!get(this, 'isInvalid')) {
             this.onsubmit({
@@ -41,8 +43,15 @@ export default Component.extend(Validations, {
             lastName: this.get('lastName'),
             patronymic: this.get('patronymic'),
             user: this.get('currentUser.user')
-      })
-    }}
+          })
+        }
+      }
+      catch(e){
+        let err = this.get('errorService').createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        errorModel.save();
+      }
+    }
   },
 
   didReceiveAttrs() {

@@ -35,24 +35,32 @@ const Validations = buildValidations({
 
 export default Component.extend(Validations, {
   currentUser: service(),
+  errorService: service(),
   i18n: service(),
   isInvalid: false,
   actions: {
     submitForm(e) {
-      e.preventDefault();
-      set(this, 'isInvalid', !this.get('validations.isValid'));
-      if (!get(this, 'isInvalid')) {
-      const uploadData = get(this, 'uploadData');
-      this.onsubmit({
-        id: this.get('idBook'),
-        title: this.get('title'),
-        author: this.get('author'),
-        pages: this.get('pages'),
-        bookURL: this.get('bookURL'),
-        tags: this.get('tags'),
-        user: this.get('currentUser.user'),
-        coverURL: '',
-      }, uploadData);
+      try{
+        e.preventDefault();
+        set(this, 'isInvalid', !this.get('validations.isValid'));
+        if (!get(this, 'isInvalid')) {
+          const uploadData = get(this, 'uploadData');
+          this.onsubmit({
+            id: this.get('idBook'),
+            title: this.get('title'),
+            author: this.get('author'),
+            pages: this.get('pages'),
+            bookURL: this.get('bookURL'),
+            tags: this.get('tags'),
+            user: this.get('currentUser.user'),
+            coverURL: '',
+          }, uploadData);
+        }
+    }
+    catch(e){
+      let err = this.get('errorService').createLog(e);
+      let errorModel = this.get('store').createRecord('error', err);
+      errorModel.save();
     }
     },
     changeUploadData(uploadData) {

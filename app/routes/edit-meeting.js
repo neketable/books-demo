@@ -1,7 +1,16 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  errorService: service(),
   model({ id }) {
-    return this.get('store').findRecord('meeting', id);
+    try{
+      return this.get('store').findRecord('meeting', id);
+    }
+    catch(e){
+      let err = this.get('errorService').createLog(e);
+      let errorModel = this.get('store').createRecord('error', err);
+      errorModel.save();
+    }
   }
 });

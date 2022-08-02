@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   session: service(),
+  errorService: service(),
 
   actions: {
     async login(user) {
@@ -13,6 +14,9 @@ export default Controller.extend({
         });
       }
       catch(e) {
+        let err = this.get("errorService").createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        await errorModel.save();
         this.send('error', e);
       }
     },

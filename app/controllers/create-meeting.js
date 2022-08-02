@@ -1,7 +1,9 @@
 import Controller from '@ember/controller';
 import EmberObject from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+  errorService: service(),
   init(){
     this._super(...arguments);
     this.set('meeting', EmberObject.create());
@@ -10,10 +12,16 @@ export default Controller.extend({
 
   actions: {
     async saveMeeting(meeting){
-      let meetingModel = this.get('store').createRecord('meeting', meeting);
-
-      await meetingModel.save();
-      this.transitionToRoute('meeting');
+      try{
+        let meetingModel = this.get('store').createRecord('meeting', meeting);
+        await meetingModel.save();
+        this.transitionToRoute('meeting');
+      }
+      catch(e){
+        let err = this.get('errorService').createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        await errorModel.save();
+      }
     }
   }
 });

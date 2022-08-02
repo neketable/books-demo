@@ -38,10 +38,20 @@
 			</div>
 			<div class="col-md-3">
 				<h5>Дата встречи</h5>
-				<div class="form-group py-2 my-0">
+          {{#power-select
+            options=model.meetings
+            selected=selectedMeeting
+            onchange=(action "changeMeeting")
+            searchField="dateOfMeeting"
+            allowClear=true
+            as |meeting|
+          }}
+            {{meeting.dateOfMeeting}}
+          {{/power-select}}
+				{{!-- <div class="form-group py-2 my-0">
 					<div class="datepicker date input-group p-0 w-100">
-            {{bootstrap-datepicker clearBtn=true format="dd.mm.yyyy" language="ru" autoclose=true}}
-						{{!-- <input type="text" placeholder="Дата..." class="form-control" id="meetingDateFilter"> --}}
+            {{bootstrap-datepicker clearBtn=true format="dd.mm.yyyy" language="ru" autoclose=true value=search}}
+            {{input type="text" placeholder="Дата" aria-label="Дата" input=(action "changeMeeting") value=searchValue}}
 						<div class="input-group-append">
 							<span class="input-group-text px-4">
 								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +61,7 @@
 							</span>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 			<div class="col-md-auto text-right col-filter">
 				<button type="button" class="btn btn-outline-primary my-2">

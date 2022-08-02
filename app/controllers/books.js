@@ -3,13 +3,21 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   session: service(),
+  errorService: service(),
   queryParams: ['search', 'searchTags'],
   search: '',
   searchTags: '',
 
   actions:{
     async deleteBook(book) {
-      await book.destroyRecord();
+      try{
+        await book.destroyRecord();
+      }
+      catch(e){
+        let err = this.get('errorService').createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        await errorModel.save();
+      }
     },
     refreshBooks(){
       this.set('search', this.get('searchValue'));

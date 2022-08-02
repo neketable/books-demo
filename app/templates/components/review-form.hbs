@@ -2,7 +2,7 @@
   <div class="form-group row">
 		<label class="col-sm-2 col-form-label text-right">Дата</label>
 		<div class="col-sm-10">
-      {{#power-select searchEnabled=false selected=dateOfMeeting onchange=(action (mut dateOfMeeting)) as |meeting|}}
+      {{#power-select searchEnabled=true selected=meeting onchange=(action (mut meeting)) search=(action "searchMeeting") as |meeting|}}
         {{meeting.dateOfMeeting}}
       {{/power-select}}
 		</div>

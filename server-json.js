@@ -73,7 +73,7 @@ const getBaseRoute = (req) => {
 
 const isAuthorized = (req) => {
   const baseRoute = getBaseRoute(req);
-  if (req.path === '/recaptcha' || req.path === '/users' || req.path === '/token' || ((baseRoute === 'speakers' || baseRoute === 'books' || baseRoute === 'reviews' || baseRoute === 'meetings') && req.method === 'GET')) {
+  if (req.path === '/recaptcha' || req.path === '/users' || req.path === '/errors' || req.path === '/token' || ((baseRoute === 'speakers' || baseRoute === 'books' || baseRoute === 'reviews' || baseRoute === 'meetings') && req.method === 'GET')) {
     return 200;
   }
 
@@ -268,17 +268,26 @@ server.use(responseInterceptor);
 
 server.use((request, response, next) => {
   const speaker = Number(request.query.speaker);
+  console.log(speaker);
   if (request.method === 'GET' && request.path === '/meetings' && !Number.isNaN(speaker)) {
     const meetings = router.db.get('meetings').filter((b) => b.speakerId === speaker).map((meeting) => {
       // meeting.reviews = router.db.get('reviews').filter((r) => r.meetingId === meeting.id).value();
-
+      console.log('33: ',meetings);
       return meeting;
     }).value();
-
+    console.log('44: ', meetings);
+   //console.log('55: ', meeting);
     response.json(meetings);
   } else {
     next();
   }
+});
+
+server.use((request, response, next) => {
+  if (request.path === '/errors' && request.method === 'POST') {
+    request.body.errorIP = request.ip;
+  }
+  next();
 });
 
 

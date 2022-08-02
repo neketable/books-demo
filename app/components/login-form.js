@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { validator, buildValidations } from 'ember-cp-validations';
 import { get, set } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 const Validations = buildValidations({
   email: [
@@ -17,16 +18,24 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
+  errorService: service(),
   actions: {
     login(e) {
-      e.preventDefault();
-      set(this, 'isInvalid', !this.get('validations.isValid'));
-      if (!get(this, 'isInvalid')) {
-      this.get('onSubmit')({
-        email: this.email,
-        password: this.password
-      });
-    }
+      try{
+        e.preventDefault();
+        set(this, 'isInvalid', !this.get('validations.isValid'));
+        if (!get(this, 'isInvalid')) {
+          this.get('onSubmit')({
+            email: this.email,
+            password: this.password
+          });
+        }
+      }
+      catch(e){
+        let err = this.get('errorService').createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        errorModel.save();
+      }
     }
   },
 

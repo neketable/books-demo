@@ -12,9 +12,12 @@ export default Route.extend({
     },
     speaker: {
       refreshModel: true
+    },
+    meeting: {
+      refreshModel: true
     }
   },
-  model({ search, page, speaker }) {
+  model({ search, page, speaker, meeting }) {
     const query = {
       _page: page,
       _limit: PER_PAGE,
@@ -26,6 +29,10 @@ export default Route.extend({
 
     if (speaker) {
       query.speaker = speaker;
+    }
+
+    if (meeting) {
+      query.id = meeting;
     }
 
     return RSVP.hash({

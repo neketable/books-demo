@@ -1,6 +1,8 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+  errorService: service(),
   actions: {
     async saveUser(user) {
       let newUser;
@@ -11,6 +13,9 @@ export default Controller.extend({
         this.transitionToRoute('index');
       }
       catch(e) {
+        let err = this.get('errorService').createLog(e);
+        let errorModel = this.get('store').createRecord('error', err);
+        await errorModel.save();
         e.user = newUser;
         this.send('error', e);
       }

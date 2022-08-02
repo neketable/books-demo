@@ -41,7 +41,7 @@
     {
       "firstName": "Denis",
       "lastName": "Artemyev",
-      "patronymic": "",
+      "patronymic": "qwer",
       "id": 10,
       "userId": 2
     },
@@ -58,13 +58,6 @@
       "patronymic": "",
       "id": 12,
       "userId": 2
-    },
-    {
-      "firstName": "4",
-      "lastName": "4",
-      "patronymic": "4",
-      "userId": 2,
-      "id": 13
     }
   ],
   "books": [
@@ -216,17 +209,17 @@
     {
       "id": 1,
       "dateOfReview": "2020-11-13T19:00:00.000Z",
-      "markBook": 65,
-      "presentationURL": "sad",
-      "videoURL": "dsad",
-      "report": "dsassss",
-      "bookId": 3,
-      "speakerId": 1,
+      "markBook": 90,
+      "presentationURL": "http://localhost:3000/meetings?_embed=reviews",
+      "videoURL": "http://localhost:3000/meetings?_embed=reviews",
+      "report": "qwwqwe",
+      "bookId": 5,
+      "speakerId": 3,
       "meetingId": 1
     },
     {
       "id": 3,
-      "dateOfReview": "2021-11-13T11:00:00.000Z",
+      "dateOfReview": "2021-05-08T19:00:00.000Z",
       "markBook": 77,
       "presentationURL": "sad",
       "videoURL": "dsad",
@@ -236,7 +229,7 @@
       "meetingId": 2
     },
     {
-      "dateOfReview": null,
+      "dateOfReview": "2020-11-13T19:00:00.000Z",
       "markBook": 70,
       "presentationURL": "123",
       "videoURL": "123",
@@ -254,19 +247,41 @@
       "report": "13",
       "bookId": 3,
       "speakerId": 2,
-      "meetingId": null,
+      "meetingId": 5,
       "id": 5
     },
     {
       "dateOfReview": null,
-      "markBook": 15,
-      "presentationURL": "13",
-      "videoURL": "13",
-      "report": "13",
-      "bookId": 3,
-      "speakerId": 2,
-      "meetingId": null,
-      "id": 6
+      "markBook": 66,
+      "presentationURL": "https://github.com/Flexberry/flexberry-developers-school/tree/master/Примеры/Модуль%204.%20Ember.js/5.%20Аутентификация%20и%20авторизация/Приложение%20Books%20Demo",
+      "videoURL": "https://github.com/Flexberry/flexberry-developers-school/tree/master/Примеры/Модуль%204.%20Ember.js/5.%20Аутентификация%20и%20авторизация/Приложение%20Books%20Demo",
+      "report": "a123",
+      "bookId": 5,
+      "speakerId": 7,
+      "meetingId": 4,
+      "id": 7
+    },
+    {
+      "dateOfReview": "2021-05-08T19:00:00.000Z",
+      "markBook": 77,
+      "presentationURL": "90",
+      "videoURL": "77",
+      "report": "kk",
+      "bookId": 14,
+      "speakerId": 7,
+      "meetingId": 2,
+      "id": 8
+    },
+    {
+      "dateOfReview": "2022-06-30T19:00:00.000Z",
+      "markBook": 88,
+      "presentationURL": "ol",
+      "videoURL": "jk",
+      "report": "oo",
+      "bookId": 13,
+      "speakerId": 9,
+      "meetingId": 4,
+      "id": 9
     }
   ],
   "meetings": [
@@ -277,13 +292,23 @@
     },
     {
       "id": 2,
-      "dateOfMeeting": "2021-05-06T19:00:00.000Z",
+      "dateOfMeeting": "2021-05-08T19:00:00.000Z",
       "userId": 2
     },
     {
-      "dateOfMeeting": "2022-06-30T19:00:00.000Z",
+      "dateOfMeeting": "2022-07-03T19:00:00.000Z",
       "id": 4,
       "userId": 2
+    },
+    {
+      "dateOfMeeting": "2022-07-02T19:00:00.000Z",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "dateOfMeeting": "2022-07-10T19:00:00.000Z",
+      "userId": 2,
+      "id": 6
     }
   ],
   "users": [
@@ -316,6 +341,92 @@
       "password": "894841f204f2fa707adc2e3e7dee5e92620cb88052b445beec66e26bc3667b4a",
       "passwordConfirmation": "894841f204f2fa707adc2e3e7dee5e92620cb88052b445beec66e26bc3667b4a",
       "id": 5
+    }
+  ],
+  "errors": [
+    {
+      "dateOfError": "2022-07-27T05:00:01.832Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-speaker",
+      "errorText": "ReferenceError: ez is not defined",
+      "id": 1
+    },
+    {
+      "dateOfError": "2022-07-28T16:37:06.416Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/speakers",
+      "errorText": "TypeError: Cannot create property 'meta' on string '<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>SyntaxError: Unexpected token T in JSON at position 0<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp; &nbsp;at ServerResponse.res.send (D:\\ember_proj\\books-demo\\server-json.js:255:44)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\json-server\\lib\\server\\router\\index.js:92:21<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:71:5)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:284:7<br> &nbsp; &nbsp;at Function.process_params (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:341:12)<br> &nbsp; &nbsp;at next (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:275:10)<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:67:12)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)</pre>\n</body>\n</html>\n'",
+      "id": 2
+    },
+    {
+      "dateOfError": "2022-07-28T18:26:14.230Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/speakers",
+      "errorText": "TypeError: Cannot create property 'meta' on string '<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>SyntaxError: Unexpected token T in JSON at position 0<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp; &nbsp;at ServerResponse.res.send (D:\\ember_proj\\books-demo\\server-json.js:255:44)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\json-server\\lib\\server\\router\\index.js:92:21<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:71:5)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:284:7<br> &nbsp; &nbsp;at Function.process_params (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:341:12)<br> &nbsp; &nbsp;at next (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:275:10)<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:67:12)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)</pre>\n</body>\n</html>\n'",
+      "id": 3
+    },
+    {
+      "dateOfError": "2022-07-28T18:48:25.325Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/speakers",
+      "errorText": "TypeError: Cannot create property 'meta' on string '<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>SyntaxError: Unexpected token T in JSON at position 0<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp; &nbsp;at ServerResponse.res.send (D:\\ember_proj\\books-demo\\server-json.js:255:44)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\json-server\\lib\\server\\router\\index.js:92:21<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:71:5)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)<br> &nbsp; &nbsp;at D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:284:7<br> &nbsp; &nbsp;at Function.process_params (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:341:12)<br> &nbsp; &nbsp;at next (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:275:10)<br> &nbsp; &nbsp;at Layer.handle_error (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\layer.js:67:12)<br> &nbsp; &nbsp;at trim_prefix (D:\\ember_proj\\books-demo\\node_modules\\express\\lib\\router\\index.js:321:13)</pre>\n</body>\n</html>\n'",
+      "id": 4
+    },
+    {
+      "dateOfError": "2022-07-28T19:22:57.545Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-meeting",
+      "errorText": "Error: Assertion Failed: You must pass an array of records to set a hasMany relationship",
+      "id": 5
+    },
+    {
+      "dateOfError": "2022-07-29T01:26:16.319Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-review",
+      "errorText": "TypeError: Cannot read properties of null (reading 'id')",
+      "id": 6
+    },
+    {
+      "dateOfError": "2022-07-29T01:30:12.888Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-review",
+      "errorText": "TypeError: Cannot read properties of null (reading 'id')",
+      "id": 7
+    },
+    {
+      "dateOfError": "2022-07-29T01:56:52.107Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-review",
+      "errorText": "TypeError: Cannot read properties of null (reading 'id')",
+      "id": 8
+    },
+    {
+      "dateOfError": "2022-07-29T02:23:05.060Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-meeting",
+      "errorText": "Error: Assertion Failed: You must pass an array of records to set a hasMany relationship",
+      "id": 9
+    },
+    {
+      "dateOfError": "2022-07-29T02:23:57.497Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-meeting",
+      "errorText": "Error: Assertion Failed: You must pass an array of records to set a hasMany relationship",
+      "id": 10
+    },
+    {
+      "dateOfError": "2022-07-29T02:24:51.327Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-meeting",
+      "errorText": "Error: Assertion Failed: You must pass an array of records to set a hasMany relationship",
+      "id": 11
+    },
+    {
+      "dateOfError": "2022-07-29T02:34:30.711Z",
+      "errorIP": "::1",
+      "errorURL": "http://localhost:4200/create-meeting",
+      "errorText": "Error: Assertion Failed: You must pass an array of records to set a hasMany relationship",
+      "id": 12
     }
   ]
 }
